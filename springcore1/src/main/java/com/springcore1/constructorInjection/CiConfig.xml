@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="certi1"
+		class="com.springcore1.constructorInjection.Certificate">
+		<constructor-arg value="python programming" />
+	</bean>
+
+	<bean id="certi2"
+		class="com.springcore1.constructorInjection.Certificate"
+		c:name="Java programming" />
+
+	<bean id="person1"
+		class="com.springcore1.constructorInjection.Person">
+
+		<constructor-arg value="Adarsh" />
+		<constructor-arg value="56" type="int" />
+		<constructor-arg ref="certi2" />
+		<constructor-arg>
+			<list>
+				<value>9984470728</value>
+				<value>795740254</value>
+				<value>9792698701</value>
+				<value>7317637583</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="confusion" class="com.springcore1.constructorInjection.Ambiguity">
+		<constructor-arg value="28" type="int" index="1" />
+		<constructor-arg value="56" type="int" index="0" />
+	</bean>
+
+</beans>

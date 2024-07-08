@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean name="key1" class="com.springcore1.reference.Keyboard">
+		<property name="name" value="zebronic" />
+		<property name="model" value="mc10" />
+	</bean>
+
+	<bean name="lap1" class="com.springcore1.reference.Laptop">
+		<property name="name" value="hanumat" />
+		<property name="model" value="aspire 5" />
+		<property name="brand" value="acer" />
+		<property name="key1">
+			<ref bean="key1" />
+		</property>
+	</bean>
+	
+	<!-- syntax for using reference in p schema -->
+	
+	<bean name="lap2" class="com.springcore1.reference.Laptop" p:key1-ref="key1">
+		<property name="name" value="hanumat2" />
+		<property name="model" value="aspire 5.2" />
+		<property name="brand" value="acer" />
+	</bean>
+
+</beans>
